@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My pretty boy ♥</title>
+  <!-- Cute Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+      background-color: #fff0f6;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      color: #d6336c;
+      text-align: center;
+      margin-bottom: 40px;
+      z-index: 2;
+      position: relative;
+      font-family: 'Dancing Script', cursive;
+    }
+
+    .heart-button {
+      background-color: #ff4d6d;
+      color: white;
+      border: none;
+      font-size: 1.2rem;
+      padding: 15px 25px;
+      cursor: pointer;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+      z-index: 2;
+      position: relative;
+    }
+
+    .heart-button:hover {
+      background-color: #e0315b;
+      transform: scale(1.1);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .hearts {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hearts span {
+      position: absolute;
+      color: #ff6699;
+      font-size: 2rem;
+      opacity: 0.3;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+      100% { transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts"></div>
+
+  <h1>Happy boyfriends day baby ♥</h1>
+
+  <a href="page2.html">
+    <button class="heart-button">Click me</button>
+  </a>
+
+  <script>
+    const heartsContainer = document.querySelector('.hearts');
+    const rows = Math.ceil(window.innerHeight / 40);
+    const cols = Math.ceil(window.innerWidth / 40);
+
+    for (let y = 0; y < rows; y++) {
+      for (let x = 0; x < cols; x++) {
+        const heart = document.createElement('span');
+        heart.textContent = '♥';
+        heart.style.left = `${x * 40}px`;
+        heart.style.top = `${y * 40}px`;
+        heart.style.animationDelay = `${Math.random() * 3}s`;
+        heartsContainer.appendChild(heart);
+      }
+    }
+  </script>
+</body>
+</html>
